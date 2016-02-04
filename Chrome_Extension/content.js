@@ -2,19 +2,18 @@
 var editorExtensionId = "fdgaobbifkkcaebeghfhnbdaljmnfjnj";
 var url = "abc";
 // Make a simple request:
+
+appendLog("sending to "+editorExtensionId);
 chrome.runtime.sendMessage(editorExtensionId, {openUrlInEditor: url},function(response) {
-  console.log("send message");
-  if (!response.success)
-  handleError(url);
+  console.log("response: "+JSON.stringify(response));
 });
 
 chrome.runtime.onMessageExternal.addListener( function(request, sender, sendResponse) {
-  //request = password fill password into web page
 
-  if(request.type == "autoFill"){
-    //autofill function
-   }
-
-  if (request.openUrlInEditor)
-  	openUrl(request.openUrlInEditor);
+  if (request.openUrlInEditor){
+    console.log("from "+sender.id+": "+request.myCustomMessage);
+    sendResponse({"result":"Ok, got your message"}); 
+  }else{
+    sendResponse({"result":"Ops, I don't understand this message"});
+  }
 });
