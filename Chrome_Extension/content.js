@@ -6,8 +6,10 @@ var passwordField = document.getElementById('Passwd');
 console.log("sending  "+url);  
 console.log("sending to "+editorExtensionId);
 chrome.runtime.sendMessage(editorExtensionId, {openUrlInEditor: url},function(response) {
-  console.log("response: "+JSON.stringify(response));
-  passwordField.value = JSON.stringify(response);
+  console.log("response: "+response.result);
+  if(passwordField!=null){
+  	passwordField.value = response.result;
+}
 });
 
 /*
