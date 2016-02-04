@@ -12,8 +12,8 @@
   "bluetooth": {
     "uuids": ["fa87c0d0-afac-11de-8a39-0800200c9a66", "8ce255c0-200a-11e0-ac64-0800200c9a66"],
     "socket": true
-  },
-  "externally_connectable": {
-    "matches": ["*://*.localhost.com/*", "*://*.google.com/*", "*://*.facebook.com/*"]
   }
+//  "externally_connectable": {
+//    "matches": ["*://*.localhost.com/*", "*://*.google.com/*", "*://*.facebook.com/*"]
+//  }
 }
